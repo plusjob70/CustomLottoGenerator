@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/random"
+        android:checkable="false"
+        android:title="1) 랜덤" />
+    <item
+        android:id="@+id/oddRandom"
+        android:checkable="false"
+        android:title="2) 홀수 중 랜덤" />
+    <item
+        android:id="@+id/evenRandom"
+        android:checkable="false"
+        android:title="3) 짝수 중 랜덤" />
+    <item
+        android:id="@+id/maxAppear5WeeksRandom"
+        android:checkable="false"
+        android:title="4) 5주간 출현상위 번호대 중 랜덤(TODO)" />
+    <item
+        android:id="@+id/maxAppear10WeeksRandom"
+        android:checkable="false"
+        android:title="5) 10주간 출현상위 번호대 중 랜덤(TODO)" />
+    <item
+        android:id="@+id/maxAppear15WeeksRandom"
+        android:checkable="false"
+        android:title="6) 15주간 출현상위 번호대 중 랜덤(TODO)" />
+    <item
+        android:id="@+id/notAppear5WeeksRandom"
+        android:checkable="false"
+        android:title="7) 5주간 미출현번호 중 랜덤" />
+    <item
+        android:id="@+id/notAppear10WeeksRandom"
+        android:checkable="false"
+        android:title="8) 10주간 미출현번호 중 랜덤(TODO)" />
+    <item
+        android:id="@+id/notAppear15WeeksRandom"
+        android:checkable="false"
+        android:title="9) 15주간 미출현번호 중 랜덤(TODO)" />
+    <item
+        android:id="@+id/maxAppearNum"
+        android:checkable="false"
+        android:title="10) 역대 최다출현 7개 중 랜덤" />
+    <item
+        android:id="@+id/minAppearNum"
+        android:checkable="false"
+        android:title="11) 역대 최소출현 7개 중 랜덤" />
+</menu>
