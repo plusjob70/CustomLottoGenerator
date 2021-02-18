@@ -64,8 +64,7 @@ class ResultActivity : AppCompatActivity() {
     }
 
     private fun saveNumberToImageID(number: Int): Int {
-        val ballName = "ball$number"
-        return resources.getIdentifier("$ballName", "drawable", packageName)
+        return resources.getIdentifier("ball$number", "drawable", packageName)
     }
 
     private fun showBalls(isSort: Int) {
