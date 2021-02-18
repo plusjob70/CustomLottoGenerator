@@ -2,12 +2,13 @@ package com.example.lotto
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import kotlinx.android.synthetic.main.activity_result.*
 import org.jetbrains.anko.doAsync
 
 class ResultActivity : AppCompatActivity() {
     private val selectNumbers = mutableListOf<Int>()
+    private var selectNumbersImageID = mutableListOf<Int>()
+    private val sortSelectNumbersImageID = mutableListOf<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,21 +36,21 @@ class ResultActivity : AppCompatActivity() {
                     9 -> selectNumbers.add(pickMinAppearNumber(selectNumbers))
                     else -> selectNumbers.add(pickRandomNumber(selectNumbers))
                 }
-
             }
 
-            val nSortSelectNumber = "${selectNumbers[0]}, ${selectNumbers[1]}, ${selectNumbers[2]}, ${selectNumbers[3]}, ${selectNumbers[4]}, ${selectNumbers[5]}"
+            selectNumbers.forEach { selectNumbersImageID.add(saveNumberToImageID(it)) }
             selectNumbers.sort()
-            val sortSelectNumber = "${selectNumbers[0]}, ${selectNumbers[1]}, ${selectNumbers[2]}, ${selectNumbers[3]}, ${selectNumbers[4]}, ${selectNumbers[5]}"
-            resultTextView.text = nSortSelectNumber
+            selectNumbers.forEach { sortSelectNumbersImageID.add(saveNumberToImageID(it)) }
+
+            showBalls(0)
 
             sortButton.setOnClickListener {
                 if (sortFlag == 1) {
-                    resultTextView.text = sortSelectNumber
+                    showBalls(1)
                     sortButton.text = "원래대로"
                     sortFlag = 0
                 } else {
-                    resultTextView.text = nSortSelectNumber
+                    showBalls(0)
                     sortButton.text = "정렬"
                     sortFlag = 1
                 }
@@ -62,4 +63,30 @@ class ResultActivity : AppCompatActivity() {
         super.onDestroy()
     }
 
+    private fun saveNumberToImageID(number: Int): Int {
+        val ballName = "ball$number"
+        return resources.getIdentifier("$ballName", "drawable", packageName)
+    }
+
+    private fun showBalls(isSort: Int) {
+        when (isSort) {
+            0 -> runOnUiThread {
+                    firstBallView.setImageResource(selectNumbersImageID[0])
+                    secondBallView.setImageResource(selectNumbersImageID[1])
+                    thirdBallView.setImageResource(selectNumbersImageID[2])
+                    fourthBallView.setImageResource(selectNumbersImageID[3])
+                    fifthBallView.setImageResource(selectNumbersImageID[4])
+                    sixthBallView.setImageResource(selectNumbersImageID[5])
+                }
+            1 -> runOnUiThread {
+                    firstBallView.setImageResource(sortSelectNumbersImageID[0])
+                    secondBallView.setImageResource(sortSelectNumbersImageID[1])
+                    thirdBallView.setImageResource(sortSelectNumbersImageID[2])
+                    fourthBallView.setImageResource(sortSelectNumbersImageID[3])
+                    fifthBallView.setImageResource(sortSelectNumbersImageID[4])
+                    sixthBallView.setImageResource(sortSelectNumbersImageID[5])
+            }
+        }
+    }
 }
+

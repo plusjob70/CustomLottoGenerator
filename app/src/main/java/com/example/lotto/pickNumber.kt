@@ -2,9 +2,7 @@ package com.example.lotto
 
 import android.util.Log
 import org.jsoup.Jsoup
-import java.time.chrono.ChronoPeriod
 import kotlin.random.Random
-
 
 fun pickRandomNumber(selectNumbers: List<Int>): Int {
     var randomNumber: Int

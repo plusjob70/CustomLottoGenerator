@@ -46,9 +46,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 noButton { }
             }.show()
-
         }
-
     }
 
     private fun showPopupMenu(view: View, index: Int){
