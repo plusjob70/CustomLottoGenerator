@@ -79,20 +79,24 @@ class MainActivity : AppCompatActivity() {
                 selectedOptions[index] = 4
                 toast("5주간 미출현번호 중 랜덤")
             }
-            R.id.notAppear10WeeksRandom -> {
+            R.id.notAppear8WeeksRandom -> {
                 selectedOptions[index] = 5
+                toast("8주간 미출현번호 중 랜덤")
+            }
+            R.id.notAppear10WeeksRandom -> {
+                selectedOptions[index] = 6
                 toast("10주간 미출현번호 중 랜덤")
             }
             R.id.notAppear15WeeksRandom -> {
-                selectedOptions[index] = 6
+                selectedOptions[index] = 7
                 toast("15주간 미출현번호 중 랜덤")
             }
             R.id.maxAppearNum -> {
-                selectedOptions[index] = 7
+                selectedOptions[index] = 8
                 toast("역대 최다출현 7개 중 랜덤")
             }
             R.id.minAppearNum -> {
-                selectedOptions[index] = 8
+                selectedOptions[index] = 9
                 toast("역대 최소출현 7개 중 랜덤")
             }
         }

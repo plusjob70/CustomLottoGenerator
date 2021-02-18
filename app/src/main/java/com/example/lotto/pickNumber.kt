@@ -2,6 +2,7 @@ package com.example.lotto
 
 import android.util.Log
 import org.jsoup.Jsoup
+import java.time.chrono.ChronoPeriod
 import kotlin.random.Random
 
 
@@ -48,12 +49,28 @@ fun pickRandomNotAppear5Weeks(selectNumbers: List<Int>): Int {
     return randomNotAppearNumber
 }
 
-public fun pickRandomNotAppear10Weeks(selectNumbers: List<Int>): Int {
-    TODO("'https://dhlottery.co.kr/gameResult.do?method=noViewNumber'에서 10주간 출현하지 않은 번호 중에서 랜덤으로 선별")
-}
+fun pickRandomNotAppear8To15Weeks(selectNumbers: List<Int>, period: Int): Int {
+    val doc = Jsoup.connect("https://dhlottery.co.kr//gameResult.do?method=noViewNumber&sltPeriod=$period").get()
+    val spanTag = doc.select("span.ball_645").text()
+    val notAppearNumber = spanTag.split(" ")
+    val notAppearNumberToIntType = mutableListOf<Int>()
+    var randomNotAppearNumber: Int
 
-public fun pickRandomNotAppear15Weeks(selectNumbers: List<Int>): Int {
-    TODO("'https://dhlottery.co.kr/gameResult.do?method=noViewNumber'에서 15주간 출현하지 않은 번호 중에서 랜덤으로 선별")
+    if (notAppearNumber.contains("")) {
+        Log.d("태그", "미출현 번호 없음, 랜덤시행")
+        return pickRandomNumber(selectNumbers)
+    }
+    notAppearNumber.forEach { notAppearNumberToIntType.add(it.toInt()) }
+
+    if (selectNumbers.containsAll(notAppearNumberToIntType)) {
+        return pickRandomNumber(selectNumbers)
+    }
+
+    do {
+        randomNotAppearNumber = notAppearNumber.random().toInt()
+    } while (selectNumbers.contains(randomNotAppearNumber))
+
+    return randomNotAppearNumber
 }
 
 fun pickMaxAppearNumber(selectNumbers: List<Int>): Int{
@@ -99,7 +116,6 @@ fun pickMinAppearNumber(selectNumbers: List<Int>): Int{
         randomMinAppearNumber = minAppearNumber.random()
     } while (selectNumbers.contains(randomMinAppearNumber))
 
-    Log.d("태그", "pickMinAppearNumber: ")
     return randomMinAppearNumber
 }
 

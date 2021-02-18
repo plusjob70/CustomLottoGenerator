@@ -19,19 +19,22 @@
         android:checkable="false"
         android:title="4) 5주간 미출현번호 중 랜덤" />
     <item
+        android:id="@+id/notAppear8WeeksRandom"
+        android:title="5) 8주간 미출현번호 중 랜덤" />
+    <item
         android:id="@+id/notAppear10WeeksRandom"
         android:checkable="false"
-        android:title="5) 10주간 미출현번호 중 랜덤(TODO)" />
+        android:title="6) 10주간 미출현번호 중 랜덤" />
     <item
         android:id="@+id/notAppear15WeeksRandom"
         android:checkable="false"
-        android:title="6) 15주간 미출현번호 중 랜덤(TODO)" />
+        android:title="7) 15주간 미출현번호 중 랜덤" />
     <item
         android:id="@+id/maxAppearNum"
         android:checkable="false"
-        android:title="7) 역대 최다출현 7개 중 랜덤" />
+        android:title="8) 역대 최다출현 7개 중 랜덤" />
     <item
         android:id="@+id/minAppearNum"
         android:checkable="false"
-        android:title="8) 역대 최소출현 7개 중 랜덤" />
+        android:title="9) 역대 최소출현 7개 중 랜덤" />
 </menu>
