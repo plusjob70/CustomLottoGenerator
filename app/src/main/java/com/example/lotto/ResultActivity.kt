@@ -27,9 +27,9 @@ class ResultActivity : AppCompatActivity() {
                     1 -> selectNumbers.add(pickRandomNumber(selectNumbers))
                     2 -> selectNumbers.add(pickRandomOddNumber(selectNumbers))
                     3 -> selectNumbers.add(pickRandomEvenNumber(selectNumbers))
-                    7 -> selectNumbers.add(pickRandomNotAppear5Weeks(selectNumbers))
-                    10 -> selectNumbers.add(pickMaxAppearNumber(selectNumbers))
-                    11 -> selectNumbers.add(pickMinAppearNumber(selectNumbers))
+                    4 -> selectNumbers.add(pickRandomNotAppear5Weeks(selectNumbers))
+                    7 -> selectNumbers.add(pickMaxAppearNumber(selectNumbers))
+                    8 -> selectNumbers.add(pickMinAppearNumber(selectNumbers))
                     else -> selectNumbers.add(pickRandomNumber(selectNumbers))
                 }
 
