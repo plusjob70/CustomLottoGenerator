@@ -13,6 +13,7 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
+        var sortFlag = 1
         val selectedOptions = arrayOf(intent.getIntExtra("option1", 1),
                                       intent.getIntExtra("option2", 1),
                                       intent.getIntExtra("option3", 1),
@@ -33,8 +34,21 @@ class ResultActivity : AppCompatActivity() {
                 }
 
             }
-            selectNumbers.sort()
-            resultTextView.text = "${selectNumbers[0]}, ${selectNumbers[1]}, ${selectNumbers[2]}, ${selectNumbers[3]}, ${selectNumbers[4]}, ${selectNumbers[5]}"
+            val nSortSelectNumber = "${selectNumbers[0]}, ${selectNumbers[1]}, ${selectNumbers[2]}, ${selectNumbers[3]}, ${selectNumbers[4]}, ${selectNumbers[5]}"
+            resultTextView.text = nSortSelectNumber
+
+            sortButton.setOnClickListener {
+                if (sortFlag == 1) {
+                    selectNumbers.sort()
+                    resultTextView.text = "${selectNumbers[0]}, ${selectNumbers[1]}, ${selectNumbers[2]}, ${selectNumbers[3]}, ${selectNumbers[4]}, ${selectNumbers[5]}"
+                    sortButton.text = "원래대로"
+                    sortFlag = 0
+                } else {
+                    resultTextView.text = nSortSelectNumber
+                    sortButton.text = "정렬"
+                    sortFlag = 1
+                }
+            }
         }
     }
 
