@@ -38,9 +38,9 @@ class ResultActivity : AppCompatActivity() {
                 }
             }
 
-            selectNumbers.forEach { selectNumbersImageID.add(saveNumberToImageID(it)) }
+            selectNumbers.forEach { selectNumbersImageID.add(ballNumberToImageID(it)) }
             selectNumbers.sort()
-            selectNumbers.forEach { sortSelectNumbersImageID.add(saveNumberToImageID(it)) }
+            selectNumbers.forEach { sortSelectNumbersImageID.add(ballNumberToImageID(it)) }
 
             showBalls(0)
 
@@ -63,7 +63,7 @@ class ResultActivity : AppCompatActivity() {
         super.onDestroy()
     }
 
-    private fun saveNumberToImageID(number: Int): Int {
+    private fun ballNumberToImageID(number: Int): Int {
         return resources.getIdentifier("ball$number", "drawable", packageName)
     }
 
