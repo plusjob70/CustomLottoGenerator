@@ -113,6 +113,7 @@ class MainActivity : AppCompatActivity() {
     override fun onContextItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.statistics5Week -> startActivity<StatisticsActivity>("period" to 5)
+            R.id.statistics8Week -> startActivity<StatisticsActivity>("period" to 8)
             R.id.statistics10Week -> startActivity<StatisticsActivity>("period" to 10)
             R.id.statistics15Week -> startActivity<StatisticsActivity>("period" to 15)
             R.id.appearHistory -> startActivity<StatisticsActivity>("period" to 0)    // 역대 번호 출현
