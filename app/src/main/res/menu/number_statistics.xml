@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="미출현 번호">
+        <menu>
+            <item
+                android:id="@+id/statistics5Week"
+                android:title="5주간" />
+            <item
+                android:id="@+id/statistics8Week"
+                android:title="8주간" />
+            <item
+                android:id="@+id/statistics10Week"
+                android:title="10주간" />
+            <item
+                android:id="@+id/statistics15Week"
+                android:title="15주간" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/appearHistory"
+        android:title="역대 출현 순위" />
+</menu>

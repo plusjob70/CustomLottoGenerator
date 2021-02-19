@@ -3,6 +3,9 @@ package com.example.lotto
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.ContextMenu
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
 import kotlinx.android.synthetic.main.activity_main.*
@@ -47,6 +50,8 @@ class MainActivity : AppCompatActivity() {
                 noButton { }
             }.show()
         }
+
+        registerForContextMenu(executeButton)
     }
 
     private fun showPopupMenu(view: View, index: Int){
@@ -99,5 +104,34 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        menuInflater.inflate(R.menu.number_statistics, menu)
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.statistics15Week -> TODO()
+            R.id.statistics10Week -> TODO()
+            R.id.statistics15Week -> TODO()
+            R.id.appearHistory -> TODO()
+        }
+        return super.onContextItemSelected(item)
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

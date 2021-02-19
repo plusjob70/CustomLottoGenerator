@@ -10,7 +10,7 @@
         android:id="@+id/firstBallView"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="43dp"
+        android:layout_marginStart="35dp"
         android:layout_marginBottom="344dp"
         app:layout_constraintBottom_toTopOf="@+id/sortButton"
         app:layout_constraintStart_toStartOf="parent"

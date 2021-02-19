@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="tiffany_blue">#81D8D0</color>
     <color name="ocean_blue">#088FD4</color>
+    <color name="caution_red">#ef4035</color>
+    <color name="fa_gray">#fafafa</color>
 </resources>
