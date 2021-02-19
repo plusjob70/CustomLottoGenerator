@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lotto"
         android:usesCleartextTraffic="true">
+        <activity android:name=".StatisticsActivity"></activity>
         <activity
             android:name=".ResultActivity"
-            android:parentActivityName=".MainActivity"
-            ></activity>
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
