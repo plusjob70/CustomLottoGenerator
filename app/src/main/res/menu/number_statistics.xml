@@ -18,5 +18,5 @@
     </item>
     <item
         android:id="@+id/appearHistory"
-        android:title="역대 출현 순위" />
+        android:title="번호별 통계" />
 </menu>
