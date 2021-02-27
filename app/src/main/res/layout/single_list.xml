@@ -6,16 +6,16 @@
     android:layout_height="wrap_content">
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ballsImageView"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_round_rect"
         android:layout_gravity="left"
-        android:padding="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
         android:layout_marginLeft="3dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="3dp"
-        />
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/bg_round_rect"
+        android:padding="30dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
@@ -29,5 +29,11 @@
         android:layout_marginRight="3dp"
         android:backgroundTint="@color/caution_red"
         app:srcCompat="@drawable/ic_baseline_delete_24" />
+
+    <TextView
+        android:id="@+id/testTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TEST" />
 
 </FrameLayout>

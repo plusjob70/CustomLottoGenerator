@@ -2,9 +2,7 @@ package com.example.lotto
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.ContextMenu
-import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
@@ -35,6 +33,9 @@ class MainActivity : AppCompatActivity() {
         }
         sixthNumButton.setOnClickListener {
             showPopupMenu(it, 5)
+        }
+        showFavNumButton.setOnClickListener {
+            startActivity<FavoriteNumbersActivity>()
         }
         executeButton.setOnClickListener {
             alert ("옵션${selectedOptions[0]}, 옵션${selectedOptions[1]}, 옵션${selectedOptions[2]}, 옵션${selectedOptions[3]}, 옵션${selectedOptions[4]}, 옵션${selectedOptions[5]}") {

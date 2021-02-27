@@ -2,18 +2,22 @@ package com.example.lotto
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_result.*
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.toast
 
 class ResultActivity : AppCompatActivity() {
     private val selectNumbers = mutableListOf<Int>()
     private var selectNumbersImageID = mutableListOf<Int>()
     private val sortSelectNumbersImageID = mutableListOf<Int>()
+    private var dbHelper: DBHelper? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
+        dbHelper = DBHelper(this)
         var sortFlag = 1
         val selectedOptions = arrayOf(intent.getIntExtra("option1", 1),
                                       intent.getIntExtra("option2", 1),
@@ -43,7 +47,6 @@ class ResultActivity : AppCompatActivity() {
             selectNumbers.forEach { sortSelectNumbersImageID.add(ballNumberToImageID(it)) }
 
             showBalls(0)
-
             sortButton.setOnClickListener {
                 if (sortFlag == 1) {
                     showBalls(1)
@@ -55,6 +58,32 @@ class ResultActivity : AppCompatActivity() {
                     sortFlag = 1
                 }
             }
+
+            addFavNumButton.setOnClickListener {
+                val numbers = Numbers()
+
+                numbers.first = sortSelectNumbersImageID[0]
+                numbers.second = sortSelectNumbersImageID[1]
+                numbers.third = sortSelectNumbersImageID[2]
+                numbers.fourth = sortSelectNumbersImageID[3]
+                numbers.fifth = sortSelectNumbersImageID[4]
+                numbers.sixth = sortSelectNumbersImageID[5]
+
+                if (dbHelper!!.addFavoriteNumbers(numbers)) {
+                    Log.d("태그", "성공")
+                }else{
+                    Log.d("태그", "실패")
+                }
+            }
+
+            showDBButton.setOnClickListener {
+                dbTextView.text = dbHelper!!.getAllNumbers().toString()
+            }
+
+            delTableButton.setOnClickListener {
+                dbHelper!!.deleteTable()
+            }
+
         }
     }
 

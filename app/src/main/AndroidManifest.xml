@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lotto"
         android:usesCleartextTraffic="true">
-        <activity android:name=".FavoriteNumbers"></activity>
+        <activity android:name=".FavoriteNumbersActivity"></activity>
         <activity android:name=".StatisticsActivity" />
         <activity
             android:name=".ResultActivity"
