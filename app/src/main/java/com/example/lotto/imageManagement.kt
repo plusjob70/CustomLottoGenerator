@@ -3,6 +3,9 @@ package com.example.lotto
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
+import java.io.ByteArrayOutputStream
+
+const val SPACE = 50f
 
 fun joinImages(imageIdList: List<Int>): Bitmap {
     val lottoAppContext = LottoApp.applicationContext()
@@ -18,11 +21,21 @@ fun joinImages(imageIdList: List<Int>): Bitmap {
     val canvas = Canvas(bmOverlay)
 
     canvas.drawBitmap(bmp1, 0f, 0f, null)
-    canvas.drawBitmap(bmp2, bmp1.width.toFloat() + 100f, 0f, null)
-    canvas.drawBitmap(bmp3, (bmp1.width.toFloat() + 100f) * 2, 0f, null)
-    canvas.drawBitmap(bmp4, (bmp1.width.toFloat() + 100f) * 3, 0f, null)
-    canvas.drawBitmap(bmp5, (bmp1.width.toFloat() + 100f) * 4, 0f, null)
-    canvas.drawBitmap(bmp6, (bmp1.width.toFloat() + 100f) * 5, 0f, null)
+    canvas.drawBitmap(bmp2, bmp1.width.toFloat() + SPACE, 0f, null)
+    canvas.drawBitmap(bmp3, (bmp1.width.toFloat() + SPACE) * 2, 0f, null)
+    canvas.drawBitmap(bmp4, (bmp1.width.toFloat() + SPACE) * 3, 0f, null)
+    canvas.drawBitmap(bmp5, (bmp1.width.toFloat() + SPACE) * 4, 0f, null)
+    canvas.drawBitmap(bmp6, (bmp1.width.toFloat() + SPACE) * 5, 0f, null)
 
     return bmOverlay
+}
+
+fun getByteArrayFromBitmap(bmp: Bitmap) : ByteArray{
+    val stream = ByteArrayOutputStream()
+    bmp.compress(Bitmap.CompressFormat.PNG, 100, stream)
+    return stream.toByteArray()
+}
+
+fun getBitmapFromByteArray(byteArray: ByteArray) : Bitmap {
+    return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
 }

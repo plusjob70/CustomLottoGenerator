@@ -3,44 +3,36 @@ package com.example.lotto
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
 
 class DBHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
     companion object {
-        private val DB_NAME = "NumbersDB"
+        private val DB_NAME = "ImageDB"
         private val DB_VERSION = 1
-        private val TABLE_NAME = "Numbers"
+        private val TABLE_NAME = "Images"
         private val ID = "id"
-        private val FIRST = "First_Number"
-        private val SECOND = "Second_Number"
-        private val THIRD = "Third_Number"
-        private val FOURTH = "Fourth_Number"
-        private val FIFTH = "Fifth_Number"
-        private val SIXTH = "Sixth_Number"
+        private val IMAGE_BYTE = "image_byte"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
-        db?.execSQL("CREATE TABLE $TABLE_NAME($ID INTEGER PRIMARY KEY AUTOINCREMENT, $FIRST INTEGER, $SECOND INTEGER, $THIRD INTEGER, $FOURTH INTEGER, $FIFTH INTEGER, $SIXTH INTEGER)")
+        db?.execSQL("CREATE TABLE $TABLE_NAME($ID INTEGER PRIMARY KEY AUTOINCREMENT, $IMAGE_BYTE BLOB)")
     }
 
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) { }
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        db?.execSQL("DROP TABLE IF EXISTS $TABLE_NAME")
+        onCreate(db)
+    }
 
-    fun getAllNumbers(): List<Int> {
-        val numberList = mutableListOf<Int>()
+    fun getAllByteArray(): List<ByteArray> {
+        val byteArrayList = mutableListOf<ByteArray>()
         val db = readableDatabase
         val cursor = db.rawQuery("SELECT * FROM $TABLE_NAME", null)
 
         if (cursor != null){
            if (cursor.moveToFirst()) {
                do {
-                   numberList.apply {
-                       add(cursor.getInt(cursor.getColumnIndex(FIRST)))
-                       add(cursor.getInt(cursor.getColumnIndex(SECOND)))
-                       add(cursor.getInt(cursor.getColumnIndex(THIRD)))
-                       add(cursor.getInt(cursor.getColumnIndex(FOURTH)))
-                       add(cursor.getInt(cursor.getColumnIndex(FIFTH)))
-                       add(cursor.getInt(cursor.getColumnIndex(SIXTH)))
-                   }
+                   byteArrayList.add(cursor.getBlob(cursor.getColumnIndex(IMAGE_BYTE)))
                } while (cursor.moveToNext())
            }
         }
@@ -48,19 +40,13 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, null, DB_VE
         cursor.close()
         db.close()
 
-        return numberList
+        return byteArrayList
     }
 
-    fun addFavoriteNumbers(numbers: Numbers): Boolean {
+    fun addFavoriteNumbers(image: ByteArray): Boolean {
         val db = writableDatabase
-        val values = ContentValues().apply {
-            put(FIRST, numbers.first)
-            put(SECOND, numbers.second)
-            put(THIRD, numbers.third)
-            put(FOURTH, numbers.fourth)
-            put(FIFTH, numbers.fifth)
-            put(SIXTH, numbers.sixth)
-        }
+        val values = ContentValues()
+        values.put(IMAGE_BYTE, image)
 
         val isSuccess = db.insert(TABLE_NAME, null, values)
         db.close()
