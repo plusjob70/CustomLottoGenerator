@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_result.*
 import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.toast
 
 class ResultActivity : AppCompatActivity() {
     private val selectNumbers = mutableListOf<Int>()
@@ -60,16 +59,16 @@ class ResultActivity : AppCompatActivity() {
             }
 
             addFavNumButton.setOnClickListener {
-                val numbers = Numbers()
+                val numberList = listOf<Int>(sortSelectNumbersImageID[0],
+                                             sortSelectNumbersImageID[1],
+                                             sortSelectNumbersImageID[2],
+                                             sortSelectNumbersImageID[3],
+                                             sortSelectNumbersImageID[4],
+                                             sortSelectNumbersImageID[5])
 
-                numbers.first = sortSelectNumbersImageID[0]
-                numbers.second = sortSelectNumbersImageID[1]
-                numbers.third = sortSelectNumbersImageID[2]
-                numbers.fourth = sortSelectNumbersImageID[3]
-                numbers.fifth = sortSelectNumbersImageID[4]
-                numbers.sixth = sortSelectNumbersImageID[5]
+                val byteArray = getByteArrayFromBitmap(joinImages(numberList))
 
-                if (dbHelper!!.addFavoriteNumbers(numbers)) {
+                if (dbHelper!!.addFavoriteNumbers(byteArray)) {
                     Log.d("태그", "성공")
                 }else{
                     Log.d("태그", "실패")
@@ -77,7 +76,8 @@ class ResultActivity : AppCompatActivity() {
             }
 
             showDBButton.setOnClickListener {
-                dbTextView.text = dbHelper!!.getAllNumbers().toString()
+                dbTextView.text = dbHelper!!.getAllByteArray().toString()
+                testImageView.setImageBitmap(getBitmapFromByteArray(dbHelper!!.getAllByteArray()[0]))
             }
 
             delTableButton.setOnClickListener {
