@@ -75,15 +75,6 @@ class ResultActivity : AppCompatActivity() {
                 }
             }
 
-            showDBButton.setOnClickListener {
-                dbTextView.text = dbHelper!!.getAllByteArray().toString()
-                testImageView.setImageBitmap(getBitmapFromByteArray(dbHelper!!.getAllByteArray()[0]))
-            }
-
-            delTableButton.setOnClickListener {
-                dbHelper!!.deleteTable()
-            }
-
         }
     }
 

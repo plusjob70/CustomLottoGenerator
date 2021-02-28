@@ -24,15 +24,18 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, null, DB_VE
         onCreate(db)
     }
 
-    fun getAllByteArray(): List<ByteArray> {
-        val byteArrayList = mutableListOf<ByteArray>()
+    fun getAllByteArray(): Map<Int, ByteArray> {
+        // val byteArrayList = mutableListOf<ByteArray>()
+        val map = mutableMapOf<Int, ByteArray>()
+
         val db = readableDatabase
         val cursor = db.rawQuery("SELECT * FROM $TABLE_NAME", null)
 
         if (cursor != null){
            if (cursor.moveToFirst()) {
                do {
-                   byteArrayList.add(cursor.getBlob(cursor.getColumnIndex(IMAGE_BYTE)))
+                   // byteArrayList.add(cursor.getBlob(cursor.getColumnIndex(IMAGE_BYTE)))
+                   map[cursor.getInt(cursor.getColumnIndex(ID))] = cursor.getBlob(cursor.getColumnIndex(IMAGE_BYTE))
                } while (cursor.moveToNext())
            }
         }
@@ -40,12 +43,13 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, null, DB_VE
         cursor.close()
         db.close()
 
-        return byteArrayList
+        return map
     }
 
     fun addFavoriteNumbers(image: ByteArray): Boolean {
         val db = writableDatabase
         val values = ContentValues()
+
         values.put(IMAGE_BYTE, image)
 
         val isSuccess = db.insert(TABLE_NAME, null, values)
