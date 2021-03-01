@@ -25,7 +25,6 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, null, DB_VE
     }
 
     fun getAllByteArray(): Map<Int, ByteArray> {
-        // val byteArrayList = mutableListOf<ByteArray>()
         val map = mutableMapOf<Int, ByteArray>()
 
         val db = readableDatabase
@@ -34,7 +33,6 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, null, DB_VE
         if (cursor != null){
            if (cursor.moveToFirst()) {
                do {
-                   // byteArrayList.add(cursor.getBlob(cursor.getColumnIndex(IMAGE_BYTE)))
                    map[cursor.getInt(cursor.getColumnIndex(ID))] = cursor.getBlob(cursor.getColumnIndex(IMAGE_BYTE))
                } while (cursor.moveToNext())
            }
@@ -58,7 +56,7 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, null, DB_VE
         return (Integer.parseInt("$isSuccess") != -1)
     }
 
-    private fun deleteFavoriteNumbers(id: Int) {
+    fun deleteFavoriteNumbers(id: Int) {
         val db = writableDatabase
         db.execSQL("DELETE FROM $TABLE_NAME WHERE id = $id")
     }

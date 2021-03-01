@@ -3,6 +3,7 @@ package com.example.lotto
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_result.*
 import org.jetbrains.anko.doAsync
 
@@ -65,16 +66,15 @@ class ResultActivity : AppCompatActivity() {
                                              sortSelectNumbersImageID[3],
                                              sortSelectNumbersImageID[4],
                                              sortSelectNumbersImageID[5])
-
                 val byteArray = getByteArrayFromBitmap(joinImages(numberList))
 
                 if (dbHelper!!.addFavoriteNumbers(byteArray)) {
                     Log.d("태그", "성공")
+                    Toast.makeText(LottoApp.applicationContext(), "내 번호에 추가됨", Toast.LENGTH_SHORT).show()
                 }else{
                     Log.d("태그", "실패")
                 }
             }
-
         }
     }
 

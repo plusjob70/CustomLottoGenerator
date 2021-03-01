@@ -2,6 +2,11 @@ package com.example.lotto
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.loader.app.LoaderManager
+import androidx.loader.content.AsyncTaskLoader
+import androidx.loader.content.Loader
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_favorite_numbers.*
 
@@ -11,6 +16,7 @@ class FavoriteNumbersActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorite_numbers)
+
         dbHelper = DBHelper(this)
 
         val imageMap = dbHelper!!.getAllByteArray()
