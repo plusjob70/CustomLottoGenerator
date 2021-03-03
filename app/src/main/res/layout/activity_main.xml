@@ -159,8 +159,10 @@
         android:layout_marginBottom="30dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:backgroundTint="@color/pastel_yellow"
+        android:backgroundTint="@color/fab_blue"
+        app:borderWidth="0dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/pastel_yellow"
         app:srcCompat="@drawable/ic_baseline_star_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

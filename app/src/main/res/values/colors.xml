@@ -8,8 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="tiffany_blue">#81D8D0</color>
+    <color name="fab_blue">#2D8CED</color>
     <color name="ocean_blue">#088FD4</color>
     <color name="caution_red">#ef4035</color>
+    <color name="heart_red">#ED2415</color>
     <color name="fa_gray">#fafafa</color>
     <color name="pastel_yellow">#ffe375</color>
 </resources>
