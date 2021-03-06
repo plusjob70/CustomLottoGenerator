@@ -38,7 +38,12 @@ class MainActivity : AppCompatActivity() {
             startActivity<FavoriteNumbersActivity>()
         }
         executeButton.setOnClickListener {
-            alert ("옵션${selectedOptions[0]}, 옵션${selectedOptions[1]}, 옵션${selectedOptions[2]}, 옵션${selectedOptions[3]}, 옵션${selectedOptions[4]}, 옵션${selectedOptions[5]}") {
+            alert ("첫 번째 수 : 옵션${selectedOptions[0]}\n\n" +
+                            "두 번째 수 : 옵션${selectedOptions[1]}\n\n" +
+                            "세 번째 수 : 옵션${selectedOptions[2]}\n\n" +
+                            "네 번째 수 : 옵션${selectedOptions[3]}\n\n" +
+                            "다섯 번째 수 : 옵션${selectedOptions[4]}\n\n" +
+                            "여섯 번째 수 : 옵션${selectedOptions[5]}") {
                 yesButton {
                     startActivity<ResultActivity>(
                         "option1" to selectedOptions[0],

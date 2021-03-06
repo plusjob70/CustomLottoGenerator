@@ -7,11 +7,11 @@ import android.database.sqlite.SQLiteOpenHelper
 
 class DBHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
     companion object {
-        private val DB_NAME = "ImageDB"
-        private val DB_VERSION = 1
-        private val TABLE_NAME = "Images"
-        private val ID = "id"
-        private val IMAGE_BYTE = "image_byte"
+        private const val DB_NAME = "ImageDB"
+        private const val DB_VERSION = 1
+        private const val TABLE_NAME = "Images"
+        private const val ID = "id"
+        private const val IMAGE_BYTE = "image_byte"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -58,11 +58,6 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, null, DB_VE
     fun deleteFavoriteNumbers(id: Int) {
         val db = writableDatabase
         db.execSQL("DELETE FROM $TABLE_NAME WHERE id = $id")
-    }
-
-    // 태이블 지우기 (테스트용)
-    fun deleteTable(){
-        val db = writableDatabase
-        db.execSQL("DELETE FROM $TABLE_NAME")
+        db.close()
     }
 }
