@@ -5,36 +5,36 @@
     <item
         android:id="@+id/random"
         android:checkable="false"
-        android:title="1) 랜덤" />
+        android:title="@string/random" />
     <item
         android:id="@+id/oddRandom"
         android:checkable="false"
-        android:title="2) 홀수 중 랜덤" />
+        android:title="@string/random_odd" />
     <item
         android:id="@+id/evenRandom"
         android:checkable="false"
-        android:title="3) 짝수 중 랜덤" />
+        android:title="@string/random_even" />
     <item
         android:id="@+id/notAppear5WeeksRandom"
         android:checkable="false"
-        android:title="4) 5주간 미출현번호 중 랜덤" />
+        android:title="@string/random_5week" />
     <item
         android:id="@+id/notAppear8WeeksRandom"
-        android:title="5) 8주간 미출현번호 중 랜덤" />
+        android:title="@string/random_8week" />
     <item
         android:id="@+id/notAppear10WeeksRandom"
         android:checkable="false"
-        android:title="6) 10주간 미출현번호 중 랜덤" />
+        android:title="@string/random_10week" />
     <item
         android:id="@+id/notAppear15WeeksRandom"
         android:checkable="false"
-        android:title="7) 15주간 미출현번호 중 랜덤" />
+        android:title="@string/random_15week" />
     <item
         android:id="@+id/maxAppearNum"
         android:checkable="false"
-        android:title="8) 역대 최다출현 7개 중 랜덤" />
+        android:title="@string/random_max" />
     <item
         android:id="@+id/minAppearNum"
         android:checkable="false"
-        android:title="9) 역대 최소출현 7개 중 랜덤" />
+        android:title="@string/random_min" />
 </menu>

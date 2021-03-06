@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">로또생성기</string>
+    <string name="first_number">첫 번째 수</string>
+    <string name="second_number">두 번째 수</string>
+    <string name="third_number">세 번째 수</string>
+    <string name="fourth_number">네 번째 수</string>
+    <string name="fifth_number">다섯 번째 수</string>
+    <string name="sixth_number">여섯 번째 수</string>
+    <string name="execute">실행</string>
+    <string name="setting">설정</string>
+    <string name="random">1) 랜덤</string>
+    <string name="random_odd">2) 홀수 중 랜덤</string>
+    <string name="random_even">3) 짝수 중 랜덤</string>
+    <string name="random_5week">4) 5주간 미출현번호 중 랜덤</string>
+    <string name="random_8week">5) 8주간 미출현번호 중 랜덤</string>
+    <string name="random_10week">6) 10주간 미출현번호 중 랜덤</string>
+    <string name="random_15week">7) 15주간 미출현번호 중 랜덤</string>
+    <string name="random_max">8) 역대 최다출현 번호 7개 중 랜덤</string>
+    <string name="random_min">9) 역대 최소출현 번호 7개 중 랜덤</string>
+    <string name="my_numbers">내 번호</string>
+    <string name="sort">정렬</string>
+    <string name="restore">원래대로</string>
+    <string name="add_my_numbers">내 번호에 추가됨</string>
+    <string name="option">옵션</string>
+</resources>

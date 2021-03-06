@@ -46,19 +46,21 @@ class ResultActivity : AppCompatActivity() {
             selectNumbers.sort()
             selectNumbers.forEach { sortSelectNumbersImageID.add(ballNumberToImageID(it)) }
 
+            // Change Button Text If Button Clicked
             showBalls(0)
             sortButton.setOnClickListener {
                 if (sortFlag == 1) {
                     showBalls(1)
-                    sortButton.text = "원래대로"
+                    sortButton.text = getString(R.string.restore)
                     sortFlag = 0
                 } else {
                     showBalls(0)
-                    sortButton.text = "정렬"
+                    sortButton.text = getString(R.string.sort)
                     sortFlag = 1
                 }
             }
 
+            // Add This Numbers To My Numbers
             addFavNumButton.setOnClickListener {
                 val numberList = listOf<Int>(sortSelectNumbersImageID[0],
                                              sortSelectNumbersImageID[1],
@@ -70,7 +72,7 @@ class ResultActivity : AppCompatActivity() {
 
                 if (dbHelper!!.addFavoriteNumbers(byteArray)) {
                     Log.d("태그", "성공")
-                    Toast.makeText(LottoApp.applicationContext(), "내 번호에 추가됨", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(LottoApp.applicationContext(), getString(R.string.add_my_numbers), Toast.LENGTH_SHORT).show()
                 }else{
                     Log.d("태그", "실패")
                 }

@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">로또생성기</string>
+    <string name="app_name">Custom Lotto Generator</string>
+    <string name="first_number">First Number</string>
+    <string name="second_number">Second Number</string>
+    <string name="third_number">Third Number</string>
+    <string name="fourth_number">Fourth Number</string>
+    <string name="fifth_number">Fifth Number</string>
+    <string name="sixth_number">Sixth Number</string>
+    <string name="option">Option</string>
+    <string name="execute">Execute</string>
+    <string name="setting">Setting</string>
+    <string name="random">1) Random Number</string>
+    <string name="random_odd">2) Random Among Odd Numbers</string>
+    <string name="random_even">3) Random Among Even Numbers</string>
+    <string name="random_5week">4) Random Among 5 Week Non-emergence Numbers</string>
+    <string name="random_8week">5) Random Among 8 Week Non-emergence Numbers</string>
+    <string name="random_10week">6) Random Among 10 Week Non-emergence Numbers</string>
+    <string name="random_15week">7) Random Among 15 Week Non-emergence Numbers</string>
+    <string name="random_max">8) Random Among Most Frequently emergence Seven Numbers</string>
+    <string name="random_min">9) Random Among Least Emergence Seven Numbers</string>
+    <string name="my_numbers">My Numbers</string>
+    <string name="sort">Sort</string>
+    <string name="restore">Restore</string>
+    <string name="add_my_numbers">Added to My Numbers</string>
 </resources>

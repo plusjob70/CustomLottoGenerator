@@ -74,7 +74,7 @@
         android:layout_marginEnd="160dp"
         android:layout_marginBottom="30dp"
         android:backgroundTint="@color/ocean_blue"
-        android:text="정렬"
+        android:text="@string/sort"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

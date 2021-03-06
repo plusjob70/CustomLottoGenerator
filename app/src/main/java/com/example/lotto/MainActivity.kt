@@ -38,12 +38,12 @@ class MainActivity : AppCompatActivity() {
             startActivity<FavoriteNumbersActivity>()
         }
         executeButton.setOnClickListener {
-            alert ("첫 번째 수 : 옵션${selectedOptions[0]}\n\n" +
-                            "두 번째 수 : 옵션${selectedOptions[1]}\n\n" +
-                            "세 번째 수 : 옵션${selectedOptions[2]}\n\n" +
-                            "네 번째 수 : 옵션${selectedOptions[3]}\n\n" +
-                            "다섯 번째 수 : 옵션${selectedOptions[4]}\n\n" +
-                            "여섯 번째 수 : 옵션${selectedOptions[5]}") {
+            alert ("${getString(R.string.first_number)} : ${getString(R.string.option)}${selectedOptions[0]}\n\n" +
+                            "${getString(R.string.second_number)} : ${getString(R.string.option)}${selectedOptions[1]}\n\n" +
+                            "${getString(R.string.third_number)} : ${getString(R.string.option)}${selectedOptions[2]}\n\n" +
+                            "${getString(R.string.fourth_number)} : ${getString(R.string.option)}${selectedOptions[3]}\n\n" +
+                            "${getString(R.string.fifth_number)} : ${getString(R.string.option)}${selectedOptions[4]}\n\n" +
+                            "${getString(R.string.sixth_number)} : ${getString(R.string.option)}${selectedOptions[5]}") {
                 yesButton {
                     startActivity<ResultActivity>(
                         "option1" to selectedOptions[0],
@@ -72,41 +72,50 @@ class MainActivity : AppCompatActivity() {
 
     private fun switchOfOptionList(itemID: Int, index: Int){
         when(itemID){
+            // Random Number
             R.id.random -> {
                 selectedOptions[index] = 1
-                toast("랜덤")
+                toast(getString(R.string.random))
             }
+            // Random Among Odd Numbers
             R.id.oddRandom -> {
                 selectedOptions[index] = 2
-                toast("홀수 중 랜덤")
+                toast(getString(R.string.random_odd))
             }
+            // Random Among Even Numbers
             R.id.evenRandom -> {
                 selectedOptions[index] = 3
-                toast("짝수 중 랜덤")
+                toast(getString(R.string.random_even))
             }
+            // Random Among 5 Week Non-emergence Numbers
             R.id.notAppear5WeeksRandom -> {
                 selectedOptions[index] = 4
-                toast("5주간 미출현번호 중 랜덤")
+                toast(getString(R.string.random_5week))
             }
+            // Random Among 8 Week Non-emergence Numbers
             R.id.notAppear8WeeksRandom -> {
                 selectedOptions[index] = 5
-                toast("8주간 미출현번호 중 랜덤")
+                toast(getString(R.string.random_8week))
             }
+            // Random Among 10 Week Non-emergence Numbers
             R.id.notAppear10WeeksRandom -> {
                 selectedOptions[index] = 6
-                toast("10주간 미출현번호 중 랜덤")
+                toast(getString(R.string.random_10week))
             }
+            // Random Among 15 Week Non-emergence Numbers
             R.id.notAppear15WeeksRandom -> {
                 selectedOptions[index] = 7
-                toast("15주간 미출현번호 중 랜덤")
+                toast(getString(R.string.random_15week))
             }
+            // Random Among Most Frequently emergence Seven Numbers
             R.id.maxAppearNum -> {
                 selectedOptions[index] = 8
-                toast("역대 최다출현 7개 중 랜덤")
+                toast(getString(R.string.random_max))
             }
+            // Random Among Least Emergence Seven Numbers
             R.id.minAppearNum -> {
                 selectedOptions[index] = 9
-                toast("역대 최소출현 7개 중 랜덤")
+                toast(getString(R.string.random_min))
             }
         }
     }
