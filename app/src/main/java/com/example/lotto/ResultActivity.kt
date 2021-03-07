@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_result.*
 import org.jetbrains.anko.doAsync
 
@@ -22,9 +23,6 @@ class ResultActivity : AppCompatActivity() {
         setContentView(R.layout.activity_result)
 
         MobileAds.initialize(this, getString(R.string.ad_app_id))
-        val adView : AdView = findViewById(R.id.adView2)
-        val adRequest = AdRequest.Builder().build()
-        adView.loadAd(adRequest)
 
         dbHelper = DBHelper(this)
         var sortFlag = 1
@@ -119,6 +117,13 @@ class ResultActivity : AppCompatActivity() {
                     sixthBallView.setImageResource(sortSelectNumbersImageID[5])
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val adView2 : AdView = findViewById(R.id.adView2)
+        val adRequest = AdRequest.Builder().build()
+        adView2.loadAd(adRequest)
     }
 }
 

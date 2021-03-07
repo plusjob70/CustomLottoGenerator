@@ -21,9 +21,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         MobileAds.initialize(this, getString(R.string.ad_app_id))
-        val adView : AdView = findViewById(R.id.adView)
-        val adRequest = AdRequest.Builder().build()
-        adView.loadAd(adRequest)
 
         firstNumButton.setOnClickListener {
             showPopupMenu(it, 0)
@@ -143,5 +140,12 @@ class MainActivity : AppCompatActivity() {
             R.id.appearHistory -> startActivity<StatisticsActivity>("period" to 0)    // 역대 번호 출현
         }
         return super.onContextItemSelected(item)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val adView : AdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
     }
 }
