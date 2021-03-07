@@ -13,6 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lotto"
         android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/ad_app_id"/>
+
         <activity android:name=".FavoriteNumbersActivity"></activity>
         <activity android:name=".StatisticsActivity" />
         <activity

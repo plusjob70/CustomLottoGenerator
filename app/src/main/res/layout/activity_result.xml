@@ -6,69 +6,104 @@
     android:layout_height="match_parent"
     tools:context=".ResultActivity">
 
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/ad_banner_id_for_test"/>
+
     <ImageView
         android:id="@+id/firstBallView"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="35dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="2dp"
         android:layout_marginBottom="344dp"
         app:layout_constraintBottom_toTopOf="@+id/sortButton"
+        app:layout_constraintEnd_toStartOf="@+id/secondBallView"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/secondBallView"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="2dp"
         android:layout_marginBottom="344dp"
         app:layout_constraintBottom_toTopOf="@+id/sortButton"
+        app:layout_constraintEnd_toStartOf="@+id/thirdBallView"
         app:layout_constraintStart_toEndOf="@+id/firstBallView"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/thirdBallView"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="2dp"
         android:layout_marginBottom="344dp"
         app:layout_constraintBottom_toTopOf="@+id/sortButton"
+        app:layout_constraintEnd_toStartOf="@+id/fourthBallView"
         app:layout_constraintStart_toEndOf="@+id/secondBallView"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/fourthBallView"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="2dp"
         android:layout_marginBottom="344dp"
         app:layout_constraintBottom_toTopOf="@+id/sortButton"
+        app:layout_constraintEnd_toStartOf="@+id/fifthBallView"
         app:layout_constraintStart_toEndOf="@+id/thirdBallView"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/fifthBallView"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="2dp"
         android:layout_marginBottom="344dp"
         app:layout_constraintBottom_toTopOf="@+id/sortButton"
+        app:layout_constraintEnd_toStartOf="@+id/sixthBallView"
         app:layout_constraintStart_toEndOf="@+id/fourthBallView"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/sixthBallView"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="35dp"
         android:layout_marginBottom="344dp"
         app:layout_constraintBottom_toTopOf="@+id/sortButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/fifthBallView"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/sortButton"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
         android:layout_marginEnd="160dp"
@@ -85,12 +120,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="30dp"
-        android:clickable="true"
         android:backgroundTint="@color/fab_blue"
-        app:tint="@color/heart_red"
+        android:clickable="true"
         app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_favorite_24" />
+        app:srcCompat="@drawable/ic_baseline_favorite_24"
+        app:tint="@color/heart_red" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

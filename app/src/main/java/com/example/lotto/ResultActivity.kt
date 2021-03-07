@@ -3,7 +3,11 @@ package com.example.lotto
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.widget.Toast
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_result.*
 import org.jetbrains.anko.doAsync
 
@@ -16,6 +20,11 @@ class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
+
+        MobileAds.initialize(this, getString(R.string.ad_app_id))
+        val adView : AdView = findViewById(R.id.adView2)
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
         dbHelper = DBHelper(this)
         var sortFlag = 1
@@ -62,19 +71,21 @@ class ResultActivity : AppCompatActivity() {
 
             // Add This Numbers To My Numbers
             addFavNumButton.setOnClickListener {
-                val numberList = listOf<Int>(sortSelectNumbersImageID[0],
-                                             sortSelectNumbersImageID[1],
-                                             sortSelectNumbersImageID[2],
-                                             sortSelectNumbersImageID[3],
-                                             sortSelectNumbersImageID[4],
-                                             sortSelectNumbersImageID[5])
-                val byteArray = getByteArrayFromBitmap(joinImages(numberList))
+                if (sortSelectNumbersImageID.size == 6) {
+                    val numberList = listOf<Int>(sortSelectNumbersImageID[0],
+                                                 sortSelectNumbersImageID[1],
+                                                 sortSelectNumbersImageID[2],
+                                                 sortSelectNumbersImageID[3],
+                                                 sortSelectNumbersImageID[4],
+                                                 sortSelectNumbersImageID[5])
+                    val byteArray = getByteArrayFromBitmap(joinImages(numberList))
 
-                if (dbHelper!!.addFavoriteNumbers(byteArray)) {
-                    Log.d("태그", "성공")
-                    Toast.makeText(LottoApp.applicationContext(), getString(R.string.add_my_numbers), Toast.LENGTH_SHORT).show()
-                }else{
-                    Log.d("태그", "실패")
+                    if (dbHelper!!.addFavoriteNumbers(byteArray)) {
+                        Log.d("태그", "성공")
+                        Toast.makeText(applicationContext, getString(R.string.add_my_numbers), Toast.LENGTH_SHORT).show()
+                    }else{
+                        Log.d("태그", "실패")
+                    }
                 }
             }
         }
